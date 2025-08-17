@@ -33,13 +33,6 @@
 
 ---
 
-## 🌍 Connect with Me  
-- 📸 Instagram: [@ali_sultan_raja](https://www.instagram.com/ali_sultan_raja/)  
-- 💼 LinkedIn: *Coming Soon*  
-- 🐦 Twitter (X): *Coming Soon*  
-
----
-
 ## 😄 Fun Facts  
 - ⚡ **Coding is fun** (and sometimes frustrating 😅)  
 - 🎮 Love exploring **tech, games, and new frameworks**  
