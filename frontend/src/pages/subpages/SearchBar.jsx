@@ -17,7 +17,7 @@ const SearchBar = ({ placeholder, onSearch, type }) => {
 
   const getPlaceholderText = () => {
     if (placeholder) return placeholder;
-    return type === 'chat' ? 'Search by username...' : 'Search Group by Name...';
+    return type === 'chat' ? 'Search user...' : 'Search Group by Name...';
   };
 
   return (

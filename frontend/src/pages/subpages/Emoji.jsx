@@ -39,14 +39,15 @@ const Emoji = ({ onEmojiSelect, onClose }) => {
   const currentEmojis = emojiCategories[selectedCategory]?.emojis || [];
 
   return (
-    <div 
+    <div
       className="absolute bg-slate-800 rounded-lg p-3 shadow-lg border border-slate-700 z-50"
       style={{
         maxHeight: '38vh',
         width: '250px',
         bottom: 'auto',
         top: '-250px',
-        left: '0'
+        left: '0',
+        animation: 'emojiSlideUp 0.3s ease-out'
       }}
     >
       {/* Header */}

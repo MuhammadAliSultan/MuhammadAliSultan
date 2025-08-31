@@ -31,12 +31,18 @@ const Interface = () => {
   };
 
   const features = [
-    { icon: "💬", title: "Real-time Chat", desc: "Instant messaging with developers worldwide" },
-    { icon: "👥", title: "Group Collaboration", desc: "Create and manage development teams effortlessly" },
-    { icon: "🚀", title: "Code Sharing", desc: "Share code snippets and technical discussions" },
-    { icon: "🔒", title: "Secure Platform", desc: "End-to-end encrypted conversations" },
-    { icon: "⚡", title: "Lightning Fast", desc: "Real-time synchronization across all devices" },
-    { icon: "🎨", title: "Modern Design", desc: "Beautiful and intuitive user interface" }
+    { icon: "💬", title: "Real-time Chat", desc: "Instant messaging with developers worldwide", detail: "Connect instantly with developers across the globe through our lightning-fast messaging system." },
+    { icon: "👥", title: "Group Collaboration", desc: "Create and manage development teams effortlessly", detail: "Form teams, share projects, and collaborate on code with built-in version control integration." },
+    { icon: "🚀", title: "Code Sharing", desc: "Share code snippets and technical discussions", detail: "Share syntax-highlighted code snippets, get instant feedback, and discuss technical challenges." },
+    { icon: "🔒", title: "Secure Platform", desc: "End-to-end encrypted conversations", detail: "Your conversations are protected with military-grade encryption and secure authentication." },
+    { icon: "⚡", title: "Lightning Fast", desc: "Real-time synchronization across all devices", detail: "Seamlessly sync your chats and projects across desktop, mobile, and web platforms." },
+    { icon: "🎨", title: "Modern Design", desc: "Beautiful and intuitive user interface", detail: "Experience a sleek, modern interface designed for productivity and ease of use." },
+    { icon: "📊", title: "Analytics Dashboard", desc: "Track your development progress and insights", detail: "Monitor your coding activity, collaboration metrics, and project milestones in real-time." },
+    { icon: "🔧", title: "Developer Tools", desc: "Integrated development environment features", detail: "Built-in code editor, debugging tools, and project management features all in one place." },
+    { icon: "🌐", title: "Multi-language Support", desc: "Support for 50+ programming languages", detail: "Write and share code in any programming language with full syntax highlighting and formatting." },
+    { icon: "📱", title: "Cross-platform", desc: "Available on all major platforms", detail: "Access Dev-Chat from Windows, macOS, Linux, iOS, Android, and web browsers." },
+    { icon: "🤖", title: "AI Assistant", desc: "Get help with coding and debugging", detail: "Our AI assistant helps with code reviews, debugging, and provides coding suggestions." },
+    { icon: "📈", title: "Performance Metrics", desc: "Monitor app performance and user engagement", detail: "Track response times, user activity, and system performance with detailed analytics." }
   ];
 
   return (
@@ -79,16 +85,19 @@ const Interface = () => {
         </button>
 
         {/* Features grid */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-6 mt-16 max-w-7xl mx-auto">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
-              className={`bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 transform hover:scale-105 transition-all duration-300 hover:bg-slate-800/60 hover:border-purple-500/50 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 transform hover:scale-105 transition-all duration-300 hover:bg-slate-800/60 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-4xl mb-3">{feature.icon}</div>
-              <h3 className="text-lg font-semibold text-purple-300 mb-2">{feature.title}</h3>
-              <p className="text-sm text-slate-400">{feature.desc}</p>
+              <div className="text-4xl mb-3 group-hover:animate-bounce">{feature.icon}</div>
+              <h3 className="text-lg font-semibold text-purple-300 mb-2 group-hover:text-purple-200">{feature.title}</h3>
+              <p className="text-sm text-slate-400 group-hover:text-slate-300">{feature.desc}</p>
+              <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-xs text-slate-500 leading-relaxed">{feature.detail}</p>
+              </div>
             </div>
           ))}
         </div>

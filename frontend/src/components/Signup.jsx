@@ -142,22 +142,38 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 flex">
+      {/* Animated background particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(25)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${2 + Math.random() * 3}s`
+            }}
+          />
+        ))}
+      </div>
+
       {/* Left Side - Logo and Animated Text */}
-      <div className="w-1/2 flex flex-col justify-between p-12 bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm">
-        
+      <div className="w-1/2 flex flex-col justify-between p-12 bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm animate-fade-in-left">
+
         {/* Logo fixed at top */}
         <div className="w-full flex justify-center mb-8">
-          <img 
-            src={logo} 
-            alt="Dev-Chat Logo" 
-            className="w-24 h-24 rounded-full shadow-2xl border-4 border-white/20"
+          <img
+            src={logo}
+            alt="Dev-Chat Logo"
+            className="w-24 h-24 rounded-full shadow-2xl border-4 border-white/20 animate-float"
           />
         </div>
 
         {/* Welcome Message centered without scrolling */}
-        <div className="flex-1 flex flex-col text-center">
+        <div className="flex-1 flex flex-col text-center animate-fade-in-up">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            <span className="block mb-2">{displayText}</span>
+            <span className="block mb-2 animate-typewriter">{displayText}</span>
             <span className="inline-block w-1 h-8 bg-white animate-pulse ml-1"></span>
           </h1>
           <p className="text-purple-200 text-lg mt-2 opacity-80">
@@ -167,23 +183,23 @@ const Signup = () => {
       </div>
 
       {/* Right Side - Form */}
-      <div className="w-1/2 flex items-center justify-center p-8">
-        <div className="bg-slate-800/60 backdrop-blur-md rounded-3xl shadow-2xl w-full max-w-md border border-slate-700/50">
+      <div className="w-1/2 flex items-center justify-center p-8 animate-fade-in-right">
+        <div className="bg-slate-800/60 backdrop-blur-md rounded-3xl shadow-2xl w-full max-w-md border border-slate-700/50 animate-slide-in-up">
           <div className="p-8">
             {showFormTitle && (
-              <h2 className="text-3xl font-bold text-center mb-8 text-white">
+              <h2 className="text-3xl font-bold text-center mb-8 text-white animate-bounce-in">
                 Create Account
               </h2>
             )}
-            
+
             {error && (
-              <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg">
+              <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg animate-pulse">
                 <p className="text-red-300 text-sm text-center">{error}</p>
               </div>
             )}
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              <div className="animate-fade-in-up">
                 <label htmlFor="fullName" className="block text-sm font-medium text-slate-300 mb-2">
                   Full Name
                 </label>
@@ -194,12 +210,12 @@ const Signup = () => {
                   value={formData.fullName}
                   onChange={handleChange}
                   placeholder="Enter your full name"
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 animate-glow"
                 />
-                {errors.fullName && <p className="mt-1 text-sm text-red-400">{errors.fullName}</p>}
+                {errors.fullName && <p className="mt-1 text-sm text-red-400 animate-pulse">{errors.fullName}</p>}
               </div>
 
-              <div>
+              <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 <label htmlFor="userName" className="block text-sm font-medium text-slate-300 mb-2">
                   User Name
                 </label>
@@ -210,12 +226,12 @@ const Signup = () => {
                   value={formData.userName}
                   onChange={handleChange}
                   placeholder="Choose a User Name"
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 animate-glow"
                 />
-                {errors.userName && <p className="mt-1 text-sm text-red-400">{errors.userName}</p>}
+                {errors.userName && <p className="mt-1 text-sm text-red-400 animate-pulse">{errors.userName}</p>}
               </div>
 
-              <div>
+              <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                   Email Address
                 </label>
@@ -226,12 +242,12 @@ const Signup = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 animate-glow"
                 />
-                {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
+                {errors.email && <p className="mt-1 text-sm text-red-400 animate-pulse">{errors.email}</p>}
               </div>
 
-              <div>
+              <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
                   Password
                 </label>
@@ -242,12 +258,12 @@ const Signup = () => {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="Create a password"
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 animate-glow"
                 />
-                {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>}
+                {errors.password && <p className="mt-1 text-sm text-red-400 animate-pulse">{errors.password}</p>}
               </div>
 
-              <div>
+              <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <label htmlFor="confirmPassword" className="block text-sm font-medium text-slate-300 mb-2">
                   Confirm Password
                 </label>
@@ -258,19 +274,20 @@ const Signup = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   placeholder="Confirm your password"
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 animate-glow"
                 />
-                {errors.confirmPassword && <p className="mt-1 text-sm text-red-400">{errors.confirmPassword}</p>}
+                {errors.confirmPassword && <p className="mt-1 text-sm text-red-400 animate-pulse">{errors.confirmPassword}</p>}
               </div>
 
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 ${
+                className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 animate-fade-in-up ${
                   isLoading
                     ? 'bg-slate-600 cursor-not-allowed'
                     : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl'
                 }`}
+                style={{ animationDelay: '0.5s' }}
               >
                 {isLoading ? (
                   <span className="flex items-center justify-center">
@@ -283,7 +300,7 @@ const Signup = () => {
                 ) : 'Create Account'}
               </button>
 
-              <div className="text-center">
+              <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                 <button
                   type="button"
                   className="text-sm text-purple-300 hover:text-purple-200 font-medium transition-colors duration-200"
@@ -294,9 +311,9 @@ const Signup = () => {
               </div>
             </form>
 
-            <div className="text-center mt-8 pt-6 border-t border-slate-700/50">
+            <div className="text-center mt-8 pt-6 border-t border-slate-700/50 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
               <p className="text-sm text-slate-400">
-                         © {new Date().getFullYear()} Dev-Chat. All rights reserved. 
+                         © {new Date().getFullYear()} Dev-Chat. All rights reserved.
               </p>
             </div>
           </div>
